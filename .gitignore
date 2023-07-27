@@ -1,0 +1,11 @@
+**/build
+**/nbproject
+**/build.xml
+**/manifest.mf
+**/Material
+*.class
+*.pdf
+*.exe
+/Git_con_Github_1
+/Modulo_1_PseInt
+/JUnit
