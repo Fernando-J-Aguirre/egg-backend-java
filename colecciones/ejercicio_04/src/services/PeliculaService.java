@@ -2,9 +2,9 @@ package services;
 
 import entities.Pelicula;
 import java.util.ArrayList;
-import java.util.Collections;
+//import java.util.Collections;
 import java.util.Scanner;
-import utilities.Comparadores;
+//import utilities.Comparadores; 
 
 public class PeliculaService {
 
@@ -28,36 +28,40 @@ public class PeliculaService {
             respuesta = scanner.next();
         } while (respuesta.equalsIgnoreCase("s"));
     }
-    
+
     public void mostrarPeliculas() {
         peliculas.forEach((e) -> System.out.println(e));
     }
-    
+
     public void motrarMayorAUnaHora() {
         for (Pelicula pelicula : peliculas) {
-            if(pelicula.getDuracion() > 1) {
+            if (pelicula.getDuracion() > 1) {
                 System.out.println(pelicula);
             }
         }
     }
-    
+
     public void ordenarDuracionMayorAMenor() {
-        Collections.sort(peliculas, Comparadores.ordenarMayorAMenorDuracion);
+        peliculas.sort((p1, p2) -> p2.getDuracion().compareTo(p1.getDuracion())); //SIN USAR LA CLASE COMPARADORES (COMPARATOR)
+//        Collections.sort(peliculas, Comparadores.ordenarMayorAMenorDuracion);
         mostrarPeliculas();
     }
-    
+
     public void ordenarDuracionMenorAMayor() {
-        Collections.sort(peliculas, Comparadores.ordenarMenorAMayorDuracion);
+        peliculas.sort((p1, p2) -> p1.getDuracion().compareTo(p2.getDuracion())); //SIN USAR LA CLASE COMPARADORES (COMPARATOR)
+//        Collections.sort(peliculas, Comparadores.ordenarMenorAMayorDuracion);
         mostrarPeliculas();
     }
-    
+
     public void ordenarPorTitulo() {
-        Collections.sort(peliculas, Comparadores.ordenarPorTitulo);
+        peliculas.sort((p1, p2) -> p1.getTitulo().compareToIgnoreCase(p2.getTitulo())); //SIN USAR LA CLASE COMPARADORES (COMPARATOR)
+//        Collections.sort(peliculas, Comparadores.ordenarPorTitulo);
         mostrarPeliculas();
     }
-    
+
     public void ordernarPorDirector() {
-        Collections.sort(peliculas, Comparadores.ordenarPorDirector);
+        peliculas.sort((p1, p2) -> p1.getDirector().compareToIgnoreCase(p2.getDirector())); //SIN USAR LA CLASE COMPARADORES (COMPARATOR)
+//        Collections.sort(peliculas, Comparadores.ordenarPorDirector);
         mostrarPeliculas();
     }
 
