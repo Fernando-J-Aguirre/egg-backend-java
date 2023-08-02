@@ -1,6 +1,6 @@
 package entities;
 
-public class Pais implements Comparable<Pais> {
+public class Pais {
 
     private String nombre;
 
@@ -54,9 +54,9 @@ public class Pais implements Comparable<Pais> {
         return "Pais [nombre=" + nombre + "]";
     }
 
-    @Override
-    public int compareTo(Pais o) {
-        return this.nombre.compareTo(o.getNombre());
-    }
+//    @Override
+//    public int compareTo(Pais o) {
+//        return this.nombre.compareTo(o.getNombre());
+//    }
 
 }
