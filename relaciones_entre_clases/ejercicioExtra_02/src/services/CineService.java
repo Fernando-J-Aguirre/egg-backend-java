@@ -50,7 +50,7 @@ public class CineService {
         LetraAsiento letra = LetraAsiento.values()[getRandomNumber(0, LetraAsiento.values().length)];
         if (verifDineroYEdadEspectador(espectador)) {
             if (ss.asientoDisponible(fila, letra, espectador)) {
-                procesarUbicacion(fila, letra, espectador);
+                procesarUbicacion(espectador);
                 System.out.println("Espectador -" + espectador.getNombre() + "- ubicado correctamente en la fila: " + fila + " - columna: " + letra);
             } else {
                 reubicarEspectador(espectador);
@@ -61,7 +61,7 @@ public class CineService {
         }
     }
 
-    private void procesarUbicacion(int fila, LetraAsiento letra, Espectador espectador) {
+    private void procesarUbicacion(Espectador espectador) {
         ArrayList<Espectador> espectadores = sala.getEspectadores();
         sala.setCantidadDisponibles(sala.getCantidadDisponibles() - 1);
         espectadores.remove(espectador);
@@ -77,7 +77,7 @@ public class CineService {
             letra = LetraAsiento.values()[getRandomNumber(0, LetraAsiento.values().length)];
         } while (!ss.asientoDisponible(fila, letra, espectador));
         
-        procesarUbicacion(fila, letra, espectador);
+        procesarUbicacion(espectador);
         System.out.println("Espectador reubicado. fila: " + fila + " - columna: " + letra);
 
     }
@@ -96,7 +96,7 @@ public class CineService {
             System.out.println("6- Salir");
             opcion = sc.nextInt();
             opcionMenu(opcion);
-        } while (opcion != 8);
+        } while (opcion != 6);
     }
 
     private void opcionMenu(int opcion) {
