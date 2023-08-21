@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Baraja" package="entities" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="cartas" type="ArrayList&lt;Carta&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;Carta&gt;" name="cartas"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCartas" returnType="ArrayList&lt;Carta&gt;" visibility="public"/>
+        <Method name="setCartas" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Carta&gt;" name="cartas"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carta" package="entities" visibility="public" xPosition="368.0" yPosition="91.0">
+      <Fields>
+        <Field name="num" type="int" visibility="private"/>
+        <Field name="palo" type="Palo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="num"/>
+          <Argument type="Palo" name="palo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNum" returnType="int" visibility="public"/>
+        <Method name="setNum" returnType="void" visibility="public">
+          <Argument type="int" name="num"/>
+        </Method>
+        <Method name="getPalo" returnType="Palo" visibility="public"/>
+        <Method name="setPalo" returnType="void" visibility="public">
+          <Argument type="Palo" name="palo"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="Palo" package="entities" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Literals>
+        <Literal name="ORO"/>
+        <Literal name="COPA"/>
+        <Literal name="ESPADA"/>
+        <Literal name="BASTO"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="palo" source="entities.Carta" target="entities.Palo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cartas" source="entities.Baraja" target="entities.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Carta&gt;"/>
+    <UseRelation source="entities.Carta" target="entities.Palo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entities.Baraja" target="entities.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
