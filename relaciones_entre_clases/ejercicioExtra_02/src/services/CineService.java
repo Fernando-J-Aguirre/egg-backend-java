@@ -51,7 +51,7 @@ public class CineService {
         if (verifDineroYEdadEspectador(espectador)) {
             if (ss.asientoDisponible(fila, letra, espectador)) {
                 procesarUbicacion(fila, letra, espectador);
-                System.out.println("Espectador ubicado correctamente en la fila: " + fila + " - columna: " + letra);
+                System.out.println("Espectador -" + espectador.getNombre() + "- ubicado correctamente en la fila: " + fila + " - columna: " + letra);
             } else {
                 reubicarEspectador(espectador);
             }
@@ -93,7 +93,7 @@ public class CineService {
             System.out.println("3- Ubicar espectador en la sala");
             System.out.println("4- Ver todos los espectadores ubicados en la sala");
             System.out.println("5- Buscar ubicación de espectador");
-            System.out.println("8- Salir");
+            System.out.println("6- Salir");
             opcion = sc.nextInt();
             opcionMenu(opcion);
         } while (opcion != 8);
@@ -124,7 +124,7 @@ public class CineService {
                 ss.buscarUbicacionDeEspectador();
                 System.out.println();
                 break;
-            case 8:
+            case 6:
                 System.out.println("Fin...");
                 System.out.println();
                 break;
