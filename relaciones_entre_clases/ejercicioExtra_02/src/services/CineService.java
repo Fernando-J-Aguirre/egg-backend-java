@@ -130,7 +130,6 @@ public class CineService {
                 break;
             default:
                 System.out.println("Opción incorrecta");
-                break;
         }
     }
 
