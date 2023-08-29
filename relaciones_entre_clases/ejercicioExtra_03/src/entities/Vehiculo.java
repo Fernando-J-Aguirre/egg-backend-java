@@ -9,12 +9,12 @@ public class Vehiculo {
     private String chasis;
     private String color;
     private TipoVehiculo tipo;
-    private Poliza poliza;
+    private Policy poliza;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(String marca, String modelo, int anio, String numeroMotor, String chasis, String color, TipoVehiculo tipo, Poliza poliza) {
+    public Vehiculo(String marca, String modelo, int anio, String numeroMotor, String chasis, String color, TipoVehiculo tipo, Policy poliza) {
         this.marca = marca;
         this.modelo = modelo;
         this.anio = anio;
@@ -81,11 +81,11 @@ public class Vehiculo {
         this.tipo = tipo;
     }
 
-    public Poliza getPoliza() {
+    public Policy getPoliza() {
         return poliza;
     }
 
-    public void setPoliza(Poliza poliza) {
+    public void setPoliza(Policy poliza) {
         this.poliza = poliza;
     }
 

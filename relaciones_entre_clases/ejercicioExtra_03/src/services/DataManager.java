@@ -1,7 +1,7 @@
 package services;
 
 import entities.Cliente;
-import entities.Poliza;
+import entities.Policy;
 import entities.TipoVehiculo;
 import entities.Vehiculo;
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ public class DataManager {
 
     private final ClienteService clienteService;
     private final VehiculoService vehiculoService;
-    private final PolizaService polizaService;
-    private final CuotaService cuotaService;
+    private final PolicyService policyService;
+    private final InstallmentService cuotaService;
 
     public DataManager() {
-        this.cuotaService = new CuotaService();
-        this.polizaService = new PolizaService(cuotaService);
-        this.vehiculoService = new VehiculoService(polizaService);
+        this.cuotaService = new InstallmentService();
+        this.policyService = new PolicyService(cuotaService);
+        this.vehiculoService = new VehiculoService(policyService);
         this.clienteService = new ClienteService(vehiculoService);
     }
 
@@ -106,20 +106,20 @@ public class DataManager {
                 break;
             case 11:
                 System.out.println("Ingrese el número de póliza");
-                Poliza poliza = polizaService.getByPolizaNumber(sc.nextInt());
-                System.out.println(poliza);
+                Policy policy = policyService.getByPolicyNumber(sc.nextInt());
+                System.out.println(policy);
                 break;
             case 12:
                 Vehiculo vehiculo = vehiculoService.getByNumber();
-                Poliza pol = polizaService.buscarPolizaDeVehiculo(vehiculo);
-                if (pol != null) {
-                    System.out.println(pol);
+                Policy policy1 = policyService.findPolicyByVehicle(vehiculo);
+                if (policy1 != null) {
+                    System.out.println(policy1);
                 }
                 break;
             case 13:
-                ArrayList<Poliza> polizas = polizaService.getAllPolizas();
-                for(Poliza poliz : polizas) {
-                    System.out.println(poliz);
+                ArrayList<Policy> policies = policyService.getAllPolicies();
+                for(Policy policy2 : policies) {
+                    System.out.println(policy2);
                 }
                 break;
             case 0:

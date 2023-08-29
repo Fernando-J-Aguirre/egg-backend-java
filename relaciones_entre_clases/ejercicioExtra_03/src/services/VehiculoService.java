@@ -1,7 +1,7 @@
 package services;
 
 import entities.Cliente;
-import entities.Poliza;
+import entities.Policy;
 import entities.TipoVehiculo;
 import entities.Vehiculo;
 import java.util.ArrayList;
@@ -11,12 +11,12 @@ public class VehiculoService {
 
     private Scanner sc;
     private ArrayList<Vehiculo> vehiculos;
-    private PolizaService polizaService;
+    private PolicyService policyService;
 
-    public VehiculoService(PolizaService polizaService) {
+    public VehiculoService(PolicyService policyService) {
         sc = new Scanner(System.in).useDelimiter("\n");
         vehiculos = new ArrayList<>();
-        this.polizaService = polizaService;
+        this.policyService = policyService;
     }
 
     public Vehiculo crearVehiculo() {
@@ -41,7 +41,7 @@ public class VehiculoService {
         vehiculo.setChasis(sc.next());
         System.out.println("Ingrese año del vehículo");
         vehiculo.setAnio(sc.nextInt());
-        Poliza poliza = polizaService.crearPoliza();
+        Policy poliza = policyService.createPolicy();
         vehiculo.setPoliza(poliza);
         vehiculos.add(vehiculo);
         return vehiculo;
@@ -87,7 +87,7 @@ public class VehiculoService {
         ArrayList<Vehiculo> toRemove = client.getVehiculos();
         for (Vehiculo vehicle : toRemove) {
             if(vehiculos.contains(vehicle)) {
-                polizaService.deletePoliza(vehicle);
+                policyService.deletePolicy(vehicle);
                 vehiculos.remove(vehicle);
             }
         }        
