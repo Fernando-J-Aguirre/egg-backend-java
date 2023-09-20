@@ -124,10 +124,18 @@ public class HotelService {
     public ArrayList<Accommodation> getAllHotels() {
         return accomodations;
     }
+    
+    public ArrayList<Hotel> getHotelsSortedByPrice() {
+        ArrayList<Hotel> hotels = new ArrayList<>();
+        for (Accommodation acc : accomodations) {
+            
+        }
+        
+        return hotels;
+    }
 
-    /*Realizar un sistema de consulta que le permite al usuario consultar por diferentes criterios:
-• todos los alojamientos.
-• todos los hoteles de más caro a más barato.
-• todos los campings con restaurante
-• todos las residencias que tienen descuento.*/
+    
+//• todos los hoteles de más caro a más barato.
+//• todos los campings con restaurante
+//• todos las residencias que tienen descuento.
 }
