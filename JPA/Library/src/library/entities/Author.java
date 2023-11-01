@@ -22,6 +22,7 @@ public class Author implements Serializable {
     private Boolean active;
 
     public Author() {
+        this.books = new ArrayList<>();
         active = true;
     }
 

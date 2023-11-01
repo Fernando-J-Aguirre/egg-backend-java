@@ -47,7 +47,7 @@ public class PublisherService {
             if (!books.isEmpty()) {
                 publisher.setBooks(books);
                 pdao.updatePublisher(publisher);
-                System.out.println("Se han cargado exitosamente los libros al autor " + publisher.getName());
+                System.out.println("Se han cargado exitosamente los libros a la editorial: " + publisher.getName());
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

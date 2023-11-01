@@ -3,14 +3,17 @@ package library;
 import java.util.List;
 import library.entities.Author;
 import library.entities.Book;
+import library.entities.Publisher;
 import library.services.AuthorService;
 import library.services.BookService;
+import library.services.PublisherService;
 
 public class Library {
 
     public static void main(String[] args) {
         BookService bookService = new BookService();
         AuthorService authorService = new AuthorService();
+        PublisherService publisherService = new PublisherService();
         
         //BOOK
         
@@ -26,13 +29,22 @@ public class Library {
         //Author
  
 //        authorService.createAuthor();
-        Author author = authorService.getAuthorById(1);
+//        Author author = authorService.getAuthorById(1);
 //        authorService.loadBooksToAuthor(author, 1);
-        System.out.println(author);
-        System.out.println();
-        authorService.removeBookFromAuthor(author);
-        System.out.println();
-        System.out.println(author);   
+//        System.out.println(author);
+//        System.out.println();
+//        authorService.removeBookFromAuthor(author);
+//        System.out.println();
+//        System.out.println(author);  
+
+
+        //Publisher
+        publisherService.createPublisher();
+//        Publisher publisher = publisherService.getById(5);
+//        System.out.println(publisher);
+//        publisherService.loadBooksToPublisher(publisher, 1);
+        
+        
     }
 
 }

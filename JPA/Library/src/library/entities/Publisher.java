@@ -22,6 +22,7 @@ public class Publisher implements Serializable {
     private Boolean active;
 
     public Publisher() {
+        this.books = new ArrayList<>();
         active = true;
     }
 
