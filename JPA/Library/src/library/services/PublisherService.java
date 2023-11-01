@@ -5,17 +5,20 @@ import java.util.Scanner;
 import library.entities.Publisher;
 import library.entities.Book;
 import library.persistence.PublisherDAO;
+import library.utils.BookManagerUtil;
 
 public class PublisherService {
 
     private final PublisherDAO pdao;
     private final Scanner scanner;
     private final BookService bs;
+    private final BookManagerUtil<Publisher> bookManagerUtil;
 
     public PublisherService() {
         pdao = new PublisherDAO();
         scanner = new Scanner(System.in).useDelimiter("\n");
         bs = new BookService();
+        bookManagerUtil = new BookManagerUtil<>();
     }
 
     public Publisher createPublisher() {
@@ -39,17 +42,29 @@ public class PublisherService {
     }
 
     public void loadBooksToPublisher(Publisher publisher, int amount) {
-        List<Book> books = publisher.getBooks();
-        for (int i = 0; i < amount; i++) {
-            Book book = bs.createBook();
-            if (!books.contains(book)) {
-                books.add(book);
-            }
-        }
-        publisher.setBooks(books);
         try {
-            pdao.updatePublisher(publisher);
-            System.out.println("Se han cargado exitosamente los libros a la editorial " + publisher.getName());
+            List<Book> books = bookManagerUtil.loadBooksToList(publisher, publisher.getBooks(), amount);
+            if (!books.isEmpty()) {
+                publisher.setBooks(books);
+                pdao.updatePublisher(publisher);
+                System.out.println("Se han cargado exitosamente los libros al autor " + publisher.getName());
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void removeBookFromAuthor(Publisher publisher) {
+        try {
+            int size = publisher.getBooks().size();
+            List<Book> books = bookManagerUtil.removeBookFrom(publisher, publisher.getBooks());
+            if (books != null && books.size() < size) {
+                publisher.setBooks(books);
+                pdao.updatePublisher(publisher);
+                System.out.println("Libro removido exitosamente");
+            } else {
+                System.out.println("No se pudo remover el/los libro/s");
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
