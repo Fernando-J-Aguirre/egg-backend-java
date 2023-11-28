@@ -12,5 +12,7 @@ public interface IOrderService {
     public List<ShowOrderDTO> getAllOrders() throws Exception;
     public ShowOrderDTO getOrderById(Long id) throws Exception;
     public ShowOrderDTO updateOrder(Long id, NewOrderDTO newOrderDTO) throws Exception;
+    public ShowOrderDTO deleteOrder(Long id) throws Exception;
+
 
 }

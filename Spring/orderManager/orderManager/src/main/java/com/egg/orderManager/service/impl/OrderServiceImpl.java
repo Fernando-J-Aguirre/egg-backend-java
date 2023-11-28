@@ -157,6 +157,15 @@ public class OrderServiceImpl implements IOrderService {
         }
     }
 
+    @Transactional
+    @Override
+    public ShowOrderDTO deleteOrder(Long id) throws Exception {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new Exception("No se encontró la orden con id: " + id));
+        orderRepository.delete(order);
+        return modelMapper.map(order, ShowOrderDTO.class);
+    }
+
     private void checkAndUpdateStock(Product product, Integer quantity) throws Exception {
         Integer stock = product.getStock();
         if (stock <= 0 || quantity > stock)

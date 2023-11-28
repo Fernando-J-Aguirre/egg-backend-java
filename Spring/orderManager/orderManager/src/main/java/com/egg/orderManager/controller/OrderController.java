@@ -59,6 +59,15 @@ public class OrderController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteOrderById(@PathVariable Long id) {
+        try {
+            ShowOrderDTO showOrderDTO = orderService.deleteOrder(id);
+            return new ResponseEntity<>(showOrderDTO, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 
 
 }
