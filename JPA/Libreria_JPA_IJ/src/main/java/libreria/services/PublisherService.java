@@ -93,9 +93,8 @@ public class PublisherService {
 
     public void update(Publisher updatedPublisher) {
         try {
-            if (getById(updatedPublisher.getId()) == null) {
+            if (getById(updatedPublisher.getId()) == null)
                 throw new Exception("No se encontró editorial para actualizar");
-            }
             pdao.updatePublisher(updatedPublisher);
             System.out.println("Editorial actualizada con éxito");
         } catch (Exception e) {

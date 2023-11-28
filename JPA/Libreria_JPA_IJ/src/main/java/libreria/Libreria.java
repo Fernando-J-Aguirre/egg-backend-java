@@ -12,9 +12,10 @@ public class Libreria {
         AuthorService authorService = new AuthorService();
         PublisherService publisherService = new PublisherService();
 
+
         //BOOK
 
-        bookService.createBook();
+//        bookService.createBook();
 //        Book book = bookService.getByISBN(123L);
 //        bookService.borrowBook(book, 11);
 //        bookService.returnBook(book, 1);

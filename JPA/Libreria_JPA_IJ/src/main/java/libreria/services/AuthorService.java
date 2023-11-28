@@ -93,9 +93,9 @@ public class AuthorService {
 
     public void updateAuthor(Author updatedAuthor) {
         try {
-            if (getAuthorById(updatedAuthor.getId()) == null) {
+            if (getAuthorById(updatedAuthor.getId()) == null)
                 throw new Exception("No se encontró autor para actualizar");
-            }
+
             adao.updateAuthor(updatedAuthor);
             System.out.println("Autor actualizado con éxito");
         } catch (Exception e) {

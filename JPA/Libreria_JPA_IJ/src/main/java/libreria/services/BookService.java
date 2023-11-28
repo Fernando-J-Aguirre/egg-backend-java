@@ -58,9 +58,8 @@ public class BookService {
 
     public void updateBook(Book updatedBook) {
         try {
-            if (getByISBN(updatedBook.getIsbn()) == null) {
+            if (getByISBN(updatedBook.getIsbn()) == null)
                 throw new Exception("No se encontró el libro para actualizar");
-            }
             bdao.updateBook(updatedBook);
             System.out.println("Libro actualizado correctamente");
         } catch (Exception e) {

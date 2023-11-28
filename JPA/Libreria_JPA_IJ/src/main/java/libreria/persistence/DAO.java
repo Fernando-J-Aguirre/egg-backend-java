@@ -8,21 +8,18 @@ public abstract class DAO<T> {
 
     protected final EntityManagerFactory emf;
     protected EntityManager em;
+
     public DAO() {
         emf = Persistence.createEntityManagerFactory("libreria");
         em = emf.createEntityManager();
     }
 
     public void connect() {
-        if(!em.isOpen()) {
-            em = emf.createEntityManager();
-        }
+        if (!em.isOpen()) em = emf.createEntityManager();
     }
 
     public void disconnect() {
-        if(em.isOpen()) {
-            em.close();
-        }
+        if (em.isOpen()) em.close();
     }
 
     public void insert(T obj) {
