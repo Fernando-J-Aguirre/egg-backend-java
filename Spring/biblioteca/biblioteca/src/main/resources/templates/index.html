@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Title</title>
+    </head>
+    <body>
+        <div>ESTO ES UN DIV EN EL INDEX</div>
+        <div th:if="${success != null}" class="container-div">
+            <h2>ÉXITO</h2>
+            <p th:text="${success}"></p>
+        </div>
+    </body>
+</html>

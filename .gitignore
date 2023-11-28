@@ -6,7 +6,7 @@
 *.class
 *.pdf
 *.exe
-/Git_con_Github_1
+/Git_con_Github
 /Modulo_1_PseInt
 /JUnit
 /colecciones/ejercicioExtra_02/dist/
@@ -14,3 +14,6 @@
 /JDBC/prueba_01/dist/
 /JDBC/tienda/dist/
 /JPA/pruebaJPA/dist/
+*.idea
+*.iml
+Spring/Instalacion*
